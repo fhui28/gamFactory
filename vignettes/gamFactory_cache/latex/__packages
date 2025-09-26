@@ -1,0 +1,9 @@
+knitr
+nlme
+mgcv
+matrixStats
+gamFactory
+qgam
+ggplot2
+mgcViz
+gamair
