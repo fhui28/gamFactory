@@ -52,11 +52,14 @@
 #' 
 #' # Example 2: Generate data from a Poisson GAM and fit a zero-truncated Poisson GAM
 #' dat <- gamSim(1, n = 2000, dist = "poisson", scale = .1)
+#' dat$eta = 0.1*(dat$f0 + dat$f1 + dat$x2 + dat$x3)
+#' dat$mu <- exp(dat$eta)
+#' dat$y <- rztpois(n = 2000, lambda = dat$mu)
 #' 
 #' 
 #' ## Reference fit using mgcv's ziplss family for fitting hurdle Poisson models
 #' fit_gold <- gam(list(y ~ s(x0) + s(x1) + s(x2) + s(x3), ~ 1),
-#' data = dat, 
+#' data = rbind(dat, 0), # Adding a zero as ziplss can sometimes hang in datas without zeros 
 #' family = ziplss())
 #' 
 #' ## Create specific zero-truncated poisson family and fit it
@@ -65,7 +68,7 @@
 #' family = fam_ztpoisson())
 #' 
 #' 
-#' err <- abs(fit$fitted.values - exp(fit_gold$fitted.values[dat$y>0,1]))
+#' err <- abs(fit$fitted.values - exp(fit_gold$fitted.values[1:2000,1]))
 #' summary(err)
 #' # Error here should be small
 #' }
