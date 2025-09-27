@@ -3,7 +3,7 @@
 #' 
 #' @name s_nest
 #' 
-#' @description Function used to define nested smooth effects. It works similarly to \link{mgcv::s}.
+#' @description Function used to define nested smooth effects. It works similarly to [mgcv::s()].
 #'              
 #' @param ... A \code{matrix} object containing variables that are used to define the nested smooth effect. See Details
 #' @param trans The type of covariate transformation to use (see, [trans_linear], [trans_mgks], or [trans_nexpsm]).

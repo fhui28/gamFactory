@@ -11,7 +11,9 @@
 #' ##### Simulate data and create object
 #' n <- 10
 #' param <- c(1, exp(2), 0.5, exp(1))
-#' y <- param[1] + (param[4] * param[2]) * sinh((1/param[4]) * asinh(qnorm(runif(n))) + (param[3]/param[4]))
+#' y <- param[1] + (param[4] * param[2]) * 
+#' sinh((1/param[4]) * 
+#' asinh(qnorm(runif(n))) + (param[3]/param[4]))
 #' 
 #' llk_shash(y = y, param = param, deriv = 3)
 #' 

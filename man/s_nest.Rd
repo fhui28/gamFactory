@@ -20,7 +20,7 @@ penalty.}
 \item{sarg}{a list of further arguments to be passed to the effect constructor.}
 }
 \description{
-Function used to define nested smooth effects. It works similarly to \link{mgcv::s}.
+Function used to define nested smooth effects. It works similarly to \code{\link[mgcv:s]{mgcv::s()}}.
 }
 \details{
 The types of transformations currently provided are three: the linear transformation, the multivariate kernel

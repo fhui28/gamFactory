@@ -3,7 +3,6 @@
 #' @section gamFactory functions:
 #' The gamFactory functions ...
 #' 
-#' @docType _PACKAGE
 #' @name gamFactory
 #' @useDynLib gamFactory, .registration = TRUE
 NULL

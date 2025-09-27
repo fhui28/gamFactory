@@ -42,7 +42,9 @@
 #' my_data <- data.frame(y = y, si = si)
 #' my_data$X <- X
 #' 
-#' fit <- gam_nl(list(y ~ s_nest(X, trans = trans_linear(), k = 20)), data = my_data, family = fam_binomial(n = m))
+#' fit <- gam_nl(list(y ~ s_nest(X, trans = trans_linear(), k = 20)), 
+#' data = my_data, 
+#' family = fam_binomial(n = m))
 #' 
 #' plot(si, y)
 #' lines(sort(si), m*plogis(eta)[order(si)], col = 4)
