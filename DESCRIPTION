@@ -10,13 +10,15 @@ Depends:
     mgcv, 
     matrixStats
 Imports:
+    actuar,
     stats, 
     gsubfn,
     numDeriv,
     MASS, 
     Matrix, 
     Rcpp
-Suggests: 
+Suggests:
+    actuar,
     knitr,
     rmarkdown,
     qgam, 
