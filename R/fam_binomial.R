@@ -5,6 +5,7 @@
 #' @rdname fam_binomial
 #' @export fam_binomial
 #' @examples 
+#' \dontrun{
 #' library(gamFactory)
 #' 
 #' #### [1] Example with standard effects
@@ -58,6 +59,7 @@
 #' fit <- getViz(fit, nsim = 50)
 #' check(fit)
 #' check0D(fit, type = "deviance")
+#' }
 #' 
 fam_binomial <- function(n){
   

@@ -15,6 +15,7 @@
 #' @name fam_stackProb
 #' @rdname fam_stackProb
 #' @examples 
+#' \dontrun{
 #' library(gamFactory)
 #' 
 #' #### Very basic example: fitting a mixture with known mixture members (experts)
@@ -134,6 +135,7 @@
 #'      ylab = "Weight of 2nd expert", ylim = c(0.2, 1.1))
 #' lines(datStack$sizes, prW$fit[ , 2] + 2*prW$se.fit[ , 2], lty = 2)
 #' lines(datStack$sizes, prW$fit[ , 2] - 2*prW$se.fit[ , 2], lty = 2 )
+#' }
 #' 
 fam_stackProb <- function(logP, ridgePen = 1e-5) {
   

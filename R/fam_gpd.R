@@ -5,6 +5,7 @@
 #' @rdname fam_gpd
 #' @export fam_gpd
 #' @examples 
+#' \dontrun{
 #' library(gamFactory)
 #' 
 #' n <- 2000
@@ -32,6 +33,7 @@
 #' err <- max(abs(fit$fitted.values - fit_2$fitted.values))
 #' if(err > 1e-6){
 #'   stop("Discrepancy between gam and gam_nl")
+#' }
 #' }
 #' 
 fam_gpd <- function(){

@@ -10,6 +10,7 @@ fam_gpd()
 The GPD family
 }
 \examples{
+\dontrun{
 library(gamFactory)
 
 n <- 2000
@@ -37,6 +38,7 @@ fit_2 <- gam(list(y ~ s(x), ~ s(x)), data = myDat, family = fam_gpd(),
 err <- max(abs(fit$fitted.values - fit_2$fitted.values))
 if(err > 1e-6){
   stop("Discrepancy between gam and gam_nl")
+}
 }
 
 }

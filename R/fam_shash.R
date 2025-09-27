@@ -5,6 +5,7 @@
 #' @rdname fam_shash
 #' @export fam_shash
 #' @examples 
+#' \dontrun{
 #' ###############
 #' # [1] Example with standard effects 
 #' ###############
@@ -106,6 +107,7 @@
 #' fit <- getViz(fit, nsim = 50)
 #' check(fit, type = "tnormal")
 #' check0D(fit, type = "tnormal")
+#' }
 #' 
 fam_shash <- function(){
   

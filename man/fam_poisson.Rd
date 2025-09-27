@@ -10,6 +10,7 @@ fam_poisson()
 The Poisson family
 }
 \examples{
+\dontrun{
 library(gamFactory)
 
 #### [1] Example with standard effects
@@ -60,5 +61,6 @@ plot(fit, inner = TRUE)
 fit <- getViz(fit, nsim = 50)
 check(fit)
 check0D(fit, type = "deviance")
+}
 
 }

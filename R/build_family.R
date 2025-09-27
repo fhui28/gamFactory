@@ -12,7 +12,7 @@
 #' b <- gam(list(accel~s(times,k=20,bs="ad"),~s(times)),
 #'          data=mcycle,family=fam)
 #' summary(b) 
-#' plot(b,pages=1,scale=0)
+#' 
 #'
 build_family <- function(bundle){
   

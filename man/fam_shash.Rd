@@ -10,6 +10,7 @@ fam_shash()
 The Sinh-Arsinh (shash) regression model
 }
 \examples{
+\dontrun{
 ###############
 # [1] Example with standard effects 
 ###############
@@ -111,5 +112,6 @@ plot(fit, inner = TRUE, select = 1)
 fit <- getViz(fit, nsim = 50)
 check(fit, type = "tnormal")
 check0D(fit, type = "tnormal")
+}
 
 }

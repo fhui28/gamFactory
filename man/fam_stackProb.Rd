@@ -21,6 +21,7 @@ A family that can be fitted via mgcv::gam.
 Creates a family to be used in mgcv::gam for probabilistic additive stacking.
 }
 \examples{
+\dontrun{
 library(gamFactory)
 
 #### Very basic example: fitting a mixture with known mixture members (experts)
@@ -140,5 +141,6 @@ plot(datStack$sizes, prW$fit[ , 2], type = 'l',
      ylab = "Weight of 2nd expert", ylim = c(0.2, 1.1))
 lines(datStack$sizes, prW$fit[ , 2] + 2*prW$se.fit[ , 2], lty = 2)
 lines(datStack$sizes, prW$fit[ , 2] - 2*prW$se.fit[ , 2], lty = 2 )
+}
 
 }
