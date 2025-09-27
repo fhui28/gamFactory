@@ -40,7 +40,7 @@
 #' colnames(dat$Xks) <- c(rep("y", nrow(X0)), rep("d1", nrow(X0)))
 #' aaa <- smoothCon(s_nest(Xks, trans=trans_mgks(), m = c(4, 2)),data = dat)
 #'
-#' @seealso \code{\link{mgks}, \code{\link{trans_mgks}}}
+#' @seealso [mgks()], [trans_mgks()]
 #'
 #' @name smooth.construct.mgks.smooth.spec
 #' @rdname smooth.construct.mgks.smooth.spec

@@ -14,3 +14,9 @@ llk_ztpoisson(y, param, deriv = 0, ...)
 \description{
 XXX.
 }
+\examples{
+\dontrun{
+# Please see the help file for [fam_ztpoisson()]. 
+}
+
+}

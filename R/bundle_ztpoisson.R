@@ -1,4 +1,3 @@
-#'
 #' Bundle for zero-truncated Poisson regression model
 #' 
 #' @name bundle_ztpoisson

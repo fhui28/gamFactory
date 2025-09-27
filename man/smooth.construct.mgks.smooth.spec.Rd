@@ -52,5 +52,5 @@ aaa <- smoothCon(s_nest(Xks, trans=trans_mgks(), m = c(4, 2)),data = dat)
 
 }
 \seealso{
-\code{\link{mgks}, \code{\link{trans_mgks}}}
+\code{\link[=mgks]{mgks()}}, \code{\link[=trans_mgks]{trans_mgks()}}
 }
