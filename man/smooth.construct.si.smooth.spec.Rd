@@ -6,6 +6,13 @@
 \usage{
 \method{smooth.construct}{si.smooth.spec}(object, data, knots)
 }
+\arguments{
+\item{object}{XXX}
+
+\item{data}{XXX}
+
+\item{knots}{XXX}
+}
 \description{
 Single index effects for mgcv
 }

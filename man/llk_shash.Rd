@@ -9,6 +9,10 @@ llk_shash(y, param, deriv = 0, phiPen = 0.001)
 \arguments{
 \item{y}{a vector of observations.}
 
+\item{param}{XXX}
+
+\item{deriv}{XXX}
+
 \item{phiPen}{positive coefficient of ridge penalty on phi parameter.}
 }
 \description{

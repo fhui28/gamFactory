@@ -6,6 +6,9 @@
 \usage{
 fam_binomial(n)
 }
+\arguments{
+\item{n}{XXX}
+}
 \description{
 The binomial family
 }

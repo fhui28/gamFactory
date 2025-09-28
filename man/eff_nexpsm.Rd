@@ -6,6 +6,17 @@
 \usage{
 eff_nexpsm(y, Xi, basis, x0 = NULL, times = NULL)
 }
+\arguments{
+\item{y}{XXX}
+
+\item{Xi}{XXX}
+
+\item{basis}{XXX}
+
+\item{x0}{Can be ignored.}
+
+\item{times}{Can be ignored.}
+}
 \description{
 Build nested adaptive exponential smooth effect
 }

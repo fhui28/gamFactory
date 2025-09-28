@@ -11,6 +11,8 @@ eff_si(Xi, basis, a0 = NULL)
 
 \item{basis}{function which takes \code{si = Xi\%*\%alpha} as input and returns model
 matrix and its derivatives w.r.t. \code{si}.}
+
+\item{a0}{Can be ignored.}
 }
 \description{
 Build single index effect

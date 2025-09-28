@@ -7,10 +7,16 @@
 prepare_link(link, oklinks, np, nam)
 }
 \arguments{
-\item{np}{XXX.}
+\item{link}{XXX}
+
+\item{oklinks}{XXX}
+
+\item{np}{XXX}
+
+\item{nam}{XXX}
 }
 \description{
-XXX.
+XXX
 }
 \examples{
 library(gamFactory)

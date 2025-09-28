@@ -7,10 +7,16 @@
 llk_gpd(y, param, deriv = 0, ...)
 }
 \arguments{
-\item{np}{XXX.}
+\item{y}{XXX}
+
+\item{param}{XXX}
+
+\item{deriv}{XXX}
+
+\item{...}{Can be ignored.}
 }
 \description{
-XXX.
+XXX
 }
 \examples{
 library(gamFactory)

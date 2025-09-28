@@ -6,6 +6,13 @@
 \usage{
 \method{smooth.construct}{nexpsm.smooth.spec}(object, data, knots)
 }
+\arguments{
+\item{object}{XXX}
+
+\item{data}{XXX}
+
+\item{knots}{XXX}
+}
 \description{
 Nested adaptive exponential smoothing effects for mgcv
 }

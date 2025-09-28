@@ -24,6 +24,8 @@ basis functions.}
 \code{range(th)}. If set to \code{"smooth"} higher derivatives
 decay to zero exponentially at rate r, as we move away from
 (\code{th[1]},\code{th[2]}).}
+
+\item{r}{Can be ignored.}
 }
 \value{
 A list where \code{b[[1]]} contains the linearly extrapolated

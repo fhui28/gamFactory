@@ -6,6 +6,15 @@
 \usage{
 mgks(y, dist, beta, deriv = 0)
 }
+\arguments{
+\item{y}{XXX}
+
+\item{dist}{XXX}
+
+\item{beta}{XXX}
+
+\item{deriv}{XXX}
+}
 \description{
 Multivariate Gaussian kernel smoother and its derivatives
 }

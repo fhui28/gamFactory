@@ -7,9 +7,13 @@
 llk_gaussian(y, param, deriv = 0, ...)
 }
 \arguments{
+\item{y}{XXX}
+
 \item{param}{XXX.}
 
 \item{deriv}{XXX.}
+
+\item{...}{Can be ignored.}
 }
 \description{
 XXX.

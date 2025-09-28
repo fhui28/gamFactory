@@ -7,9 +7,15 @@
 \method{predict}{gamnl}(object, newdata, type = "link", se.fit = FALSE, ...)
 }
 \arguments{
-\item{...}{further arguments to be passed to \link[mgcv:gam]{mgcv::gam}.}
+\item{object}{XXX}
 
-\item{formula, family, data}{same arguments as in \link[mgcv:gam]{mgcv::gam}.}
+\item{newdata}{XXX}
+
+\item{type}{XXX}
+
+\item{se.fit}{XXX}
+
+\item{...}{Can be ignored}
 }
 \description{
 Predictions from GAM models with non-linear effects

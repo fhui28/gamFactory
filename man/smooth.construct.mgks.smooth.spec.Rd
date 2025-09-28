@@ -34,6 +34,7 @@ where \eqn{K_{a}} is a kernel function from a multivariate probability density, 
 In general \eqn{{x}_i} does not necessarily belong to the set \eqn{({x}_{i1}, \ldots, {x}_{in_j})}. This flexibility of \eqn{s~} makes it especially useful in cases of misaligned covariates, where the covariate measurements are taken at locations different from the sites of the response variable.
 }
 \examples{
+\dontrun{
 n0 <- 50;n <- 1000
 X0 <- cbind(runif(n0, -1, 1), runif(n0, -4, 4))
 X <- cbind(runif(n, -1, 1), runif(n, -4, 4))
@@ -49,6 +50,7 @@ dat <- data.frame(y = z.mgks*cos(z.mgks/2)+rnorm(n))
 dat$Xks <- cbind(temp,dist)
 colnames(dat$Xks) <- c(rep("y", nrow(X0)), rep("d1", nrow(X0)))
 aaa <- smoothCon(s_nest(Xks, trans=trans_mgks(), m = c(4, 2)),data = dat)
+}
 
 }
 \seealso{

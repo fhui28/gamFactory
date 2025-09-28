@@ -6,6 +6,13 @@
 \usage{
 eff_mgks(y, dist, basis)
 }
+\arguments{
+\item{y}{XXX}
+
+\item{dist}{XXX}
+
+\item{basis}{XXX}
+}
 \description{
 Build nested adaptive exponential smooth effect
 }

@@ -6,6 +6,19 @@
 \usage{
 expsmooth(y, Xi, beta, x0 = NULL, times = NULL, deriv = 0)
 }
+\arguments{
+\item{y}{XXX}
+
+\item{Xi}{XXX}
+
+\item{beta}{XXX}
+
+\item{x0}{Can be ignored.}
+
+\item{times}{Can be ignored.}
+
+\item{deriv}{Can be ignored.}
+}
 \description{
 Exponential smooth and its derivatives
 }
