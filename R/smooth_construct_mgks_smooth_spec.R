@@ -47,7 +47,7 @@
 #' @name smooth.construct.mgks.smooth.spec
 #' @rdname smooth.construct.mgks.smooth.spec
 #' @importFrom mgcv smooth.construct Predict.matrix.Bspline.smooth sdiag bandchol psum.chisq
-#' @importFrom stats cov
+#' @importFrom stats cov sd
 #' @export
 #' 
 smooth.construct.mgks.smooth.spec <- function(object, data, knots)
@@ -84,10 +84,10 @@ smooth.construct.mgks.smooth.spec <- function(object, data, knots)
     # Other elements of alpha set to the negative marginal standard deviations / 10.
     # Dividing by 10 seems a good compromise between under- and over-smoothing.
     g <- mgks(y = si$x, dist = Dist, beta = -log(sapply(si$dist, sd)/10))$d0
-    alpha <- si$alpha <- c(log(1/sd(g)), -log(sapply(si$dist, sd)/10)) 
+    alpha <- si$alpha <- c(log(1/stats::sd(g)), -log(sapply(si$dist, sd)/10)) 
   } else {
     g <- mgks(y = si$x, dist = Dist, beta = alpha)$d0
-    alpha <- si$alpha <- c(log(1/sd(g)), alpha)
+    alpha <- si$alpha <- c(log(1/stats::sd(g)), alpha)
   }
   
   # Center and scale the initialized inner linear preditor

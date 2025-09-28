@@ -7,7 +7,7 @@
 #' @noMd
 #' @export
 #'
-DHessDrho.nexpsm <- function(o, llk, DbDr){
+DHessDrho.nexpsm <- function(o, llk, DbDr, ...){
   
   d1H <- list()
   

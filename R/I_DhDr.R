@@ -64,7 +64,7 @@
 #' @noMd
 #' @export
 #'
-DHessDrho.easy <- function(o, llk, DbDr, index){
+DHessDrho.easy <- function(o, llk, DbDr, index, ...){
   
   type <- sapply(o, function(inp) class(inp)[1])
   

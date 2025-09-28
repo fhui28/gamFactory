@@ -101,7 +101,7 @@
   
   # Reparametrise the outer smooth so that penalty is diagonal (we need diagonal penalty otherwise mgcv will
   # reparametrise again with Sl.repara)
-  sm <- gamFactory:::.diagPen(X = out$X, S = out$S[[1]], out$rank)
+  sm <- .diagPen(X = out$X, S = out$S[[1]], out$rank)
   
   # Final model matrix includes inner and outer matrix (inner part first "di" columns, just dummy needed by mgcv) 
   out$X <- cbind(matrix(0, n, di), sm$X) 

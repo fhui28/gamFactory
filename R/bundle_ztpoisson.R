@@ -64,7 +64,7 @@ bundle_ztpoisson <- function(){
     
     # Fixing the environment of all functions
     for(ii in 1:length(out)){
-        if( class(out[[ii]]) == "function" ){
+        if(inherits(out[[ii]], "function")) {
             environment(out[[ii]]) <- environment()
         }
     }

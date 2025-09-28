@@ -2,12 +2,11 @@
 #' Derivatives of single index effects
 #' 
 #' @rdname DllkDbeta.si
-#' @export DllkDbeta.si
 #' @noRd
 #' @noMd
 #' @export
 #'
-DllkDbeta.si <- function(o, llk, deriv = 1, param = NULL){
+DllkDbeta.si <- function(o, llk, deriv = 1, param = NULL, ...){
   
   if( deriv == 0 ){ return( list() ) }
   

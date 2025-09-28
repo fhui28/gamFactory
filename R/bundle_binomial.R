@@ -4,6 +4,7 @@
 #' @name bundle_binomial
 #' @param n XXX
 #' @rdname bundle_binomial
+#' @importFrom stats rbinom
 #' @export
 #'
 bundle_binomial <- function(n){
@@ -48,7 +49,7 @@ bundle_binomial <- function(n){
                 return( r )
               },
               rd = function(mu, wt, scale) {
-                return( rbinom(nrow(mu), n, mu) )
+                return( stats::rbinom(nrow(mu), n, mu) )
               },
               initialize = function(y, nobs, E, x, family, offset, jj, unscaled){
                 
@@ -84,7 +85,7 @@ bundle_binomial <- function(n){
   
   # Fixing the environment of all functions
   for(ii in 1:length(out)){
-    if( class(out[[ii]]) == "function" ){
+    if(inherits(out[[ii]], "function")) {
       environment(out[[ii]]) <- environment()
     }
   }

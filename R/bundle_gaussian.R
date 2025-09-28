@@ -3,6 +3,8 @@
 #' 
 #' @name bundle_gaussian
 #' @rdname bundle_gaussian
+#' @importFrom stats rnorm pnorm qnorm
+#' @importFrom mgcv gaulss
 #' @export
 #'
 bundle_gaussian <- function(){
@@ -14,32 +16,32 @@ bundle_gaussian <- function(){
               bundle_nam = as.character(match.call()[[1]]),
               residuals = function(object, type=c("deviance", "pearson", "response")) {
                 type <- match.arg(type)
-                rsd <- object$y-object$fitted[,1]
+                rsd <- object$y - object$fitted[,1]
                 if (type=="response") return(rsd) else
                   return((rsd*object$fitted[,2])) ## (y-mu)/sigma 
               },
               rd = function(mu, wt, scale) {
-                return( rnorm(nrow(mu), mu[ , 1], sqrt(scale/wt)/mu[ , 2]) )
+                return( stats::rnorm(nrow(mu), mu[ , 1], sqrt(scale/wt)/mu[ , 2]) )
               },
               cdf = function(q, mu, wt, scale, logp = FALSE) {
-                return( pnorm(q, mean = mu[ , 1], sd = 1/mu[ , 2], log.p = logp) )
+                return( stats::pnorm(q, mean = mu[ , 1], sd = 1/mu[ , 2], log.p = logp) )
               },
               qf = function(p, mu, logp = FALSE) {
-                return( qnorm(p, mean = mu[ , 1], sd = 1/mu[ , 2], log.p = logp) )
+                return( stats::qnorm(p, mean = mu[ , 1], sd = 1/mu[ , 2], log.p = logp) )
               },
               initialize = function(y, nobs, E, x, family, offset, jj, unscaled){
                 start <- NULL
                 pen.reg <- penreg
-                eval(gaulss()$initialize)
+                eval(mgcv::gaulss()$initialize)
                 return( start )
               }
   )
   
   # Fixing the environment of all functions
   for(ii in 1:length(out)){
-    if( class(out[[ii]]) == "function" ){
-      environment(out[[ii]]) <- environment()
-    }
+      if(inherits(out[[ii]], "function")) {
+          environment(out[[ii]]) <- environment()
+      }
   }
   
   return( out )

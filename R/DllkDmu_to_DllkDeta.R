@@ -38,7 +38,7 @@ DllkDMu_to_DllkDeta <- function(DllkDMu, etas, mus, family, wt, deriv){
       
     }
     
-    out <- gamlss.etamu(l1, l2, l3, l4, ig1, g2, g3, g4, i2, i3, i4, 
+    out <- mgcv::gamlss.etamu(l1, l2, l3, l4, ig1, g2, g3, g4, i2, i3, i4, 
                         deriv = switch(as.character(deriv), "0" = 0, "1" = 0, "2" = 0, "3" = 1, "4" = 3))
     
     if( is.matrix(out$l1) ) out$d1 <- lapply(seq_len(ncol(out$l1)), function(ii) out$l1[ , ii])

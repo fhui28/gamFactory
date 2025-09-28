@@ -20,10 +20,7 @@
 #' @rdname gam_nl
 #' @return A \code{gamnl} and \code{gamObject}. See \code{?gamObject}.
 #' 
-#' @export
-#'
 #' @examples
-#
 #' #####
 #' # Single index example
 #' ####
@@ -47,7 +44,13 @@
 #' print(plot(fit, inner = TRUE), pages = 1) # plot inner components
 #'
 #'
-gam_nl <- function(formula, family = fam_gaussian(), data = list(), fit = TRUE, ...){
+#' @importFrom mgcv gam
+#' @export
+gam_nl <- function(formula, 
+                   family = fam_gaussian(), 
+                   data = list(), 
+                   fit = TRUE, 
+                   ...){
   
   if( !is.list(formula) ){
     formula <- list(formula)
@@ -59,7 +62,10 @@ gam_nl <- function(formula, family = fam_gaussian(), data = list(), fit = TRUE, 
   if( is.null(out) ){ # Do not build if G already provided
     form_comp <- .compile_formula(formula)
     
-    out <- gam(formula = form_comp, family = family, data = data, fit = FALSE, ...)
+    out <- mgcv::gam(formula = form_comp, 
+                     family = family, 
+                     data = data, 
+                     fit = FALSE, ...)
     
     info <- prep_info(o = out)
     

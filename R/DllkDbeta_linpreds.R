@@ -6,7 +6,7 @@
 #' @noMd
 #' @noRd
 #' @export
-DllkDbeta.linpreds <- function(o, llk, deriv = 1, param = NULL){
+DllkDbeta.linpreds <- function(o, llk, deriv = 1, param = NULL, ...){
   
   if( deriv > 2 ) stop("Does not work with deriv > 2") 
   nlp <- o$nlp

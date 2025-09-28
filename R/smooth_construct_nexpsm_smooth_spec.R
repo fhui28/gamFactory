@@ -41,7 +41,7 @@ smooth.construct.nexpsm.smooth.spec <- function(object, data, knots)
                      # Note that this extra parameter should NOT be penalised by Si
   
   if( !is.null(Si) ){ # Reparametrise Xi so that the penalty on alpha is diagonal
-    si <- append(si, gamFactory:::.diagPen(X = Xi, S = Si, r = rankMatrix(Si)))
+    si <- append(si, .diagPen(X = Xi, S = Si, r = rankMatrix(Si)))
   } else { # No inner penalty 
     si$X <- Xi
     si$B <- diag(nrow = ncol(Xi))

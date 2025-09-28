@@ -7,7 +7,7 @@
 #' @noMd
 #' @export 
 #'
-DHessDrho.stand <- function(o, llk, DbDr){
+DHessDrho.stand <- function(o, llk, DbDr, ...){
   
   X <- o$store$X
   m <- ncol( DbDr )        # Number of smoothing parameters

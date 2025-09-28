@@ -3,6 +3,7 @@
 #' 
 #' @name bundle_poisson
 #' @rdname bundle_poisson
+#' @importFrom stats rpois
 #' @export bundle_poisson
 #'
 bundle_poisson <- function(){
@@ -19,7 +20,7 @@ bundle_poisson <- function(){
                 return( r )
               },
               rd = function(mu, wt, scale) {
-                return( rpois(nrow(mu), mu) )
+                return( stats::rpois(nrow(mu), mu) )
               },
               initialize = function(y, nobs, E, x, family, offset, jj, unscaled){
                 
@@ -56,9 +57,9 @@ bundle_poisson <- function(){
   
   # Fixing the environment of all functions
   for(ii in 1:length(out)){
-    if( class(out[[ii]]) == "function" ){
-      environment(out[[ii]]) <- environment()
-    }
+      if(inherits(out[[ii]], "function")) {
+          environment(out[[ii]]) <- environment()
+      }
   }
   
   return( out )

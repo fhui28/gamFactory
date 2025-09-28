@@ -4,7 +4,9 @@
 #' @description XXX.
 #' @name bundle_gpd
 #' @rdname bundle_gpd
+#' @importFrom stats runif
 #' @export bundle_gpd
+#' 
 bundle_gpd <- function(){
   out <- list(np = 2,
               available_deriv = 3,
@@ -47,7 +49,7 @@ bundle_gpd <- function(){
                 sig <- mu[ , 1, drop = TRUE] / (1 + xi)
                 
                 n <- length(xi)
-                r <- sig * ((1-runif(n))^(-xi) - 1) / xi
+                r <- sig * ((1-stats::runif(n))^(-xi) - 1) / xi
                 
                 return( r )
               }, 
@@ -98,9 +100,9 @@ bundle_gpd <- function(){
   
   # Fixing the environment of all functions
   for(ii in 1:length(out)){
-    if( class(out[[ii]]) == "function" ){
-      environment(out[[ii]]) <- environment()
-    }
+      if(inherits(out[[ii]], "function")) {
+          environment(out[[ii]]) <- environment()
+      }
   }
   
   return(out)

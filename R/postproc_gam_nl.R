@@ -4,7 +4,8 @@
 #' @rdname postproc_gam_nl
 #' @noRd
 #' @noMd
-#' @export postproc_gam_nl
+#' @importFrom stats coef predict
+#' @export
 #'
 postproc_gam_nl <- function(o, info){
   
@@ -17,7 +18,7 @@ postproc_gam_nl <- function(o, info){
       
       ism <- info$extra[[ii]]$ism
       sii <- o$smooth[[ism]]
-      sii$xt$si$alpha <- coef(o)[ info$iec[[ii]][1:length(sii$xt$si$alpha)] ]
+      sii$xt$si$alpha <- stats::coef(o)[ info$iec[[ii]][1:length(sii$xt$si$alpha)] ]
       
       # Inner smooth must be centered using original data
       if(is.null(sii$xt$si$xm)){
@@ -32,8 +33,8 @@ postproc_gam_nl <- function(o, info){
     
   }
   
-  o$linear.predictors <- predict(o, type = "link")
-  o$fitted.values <- predict(o, type = "response")
+  o$linear.predictors <- stats::predict(o, type = "link")
+  o$fitted.values <- stats::predict(o, type = "response")
   
   return( o )
   

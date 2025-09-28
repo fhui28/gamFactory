@@ -7,7 +7,7 @@
 #' @noMd
 #' @export 
 #'
-DHessDrho.linpreds <- function(o, llk, DbDr){
+DHessDrho.linpreds <- function(o, llk, DbDr, ...){
   
   eff <- o$eff
   nlp <- o$nlp

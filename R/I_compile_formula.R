@@ -5,7 +5,7 @@
   } else{
     # Decompose formula into terms
     env <- environment(form)
-    dec <- terms(form, keep.order = TRUE)
+    dec <- stats::terms(form, keep.order = TRUE)
     ter <- attr(dec, "term.labels")
     
     # Is there an offset()? If so add it to terms
@@ -27,7 +27,7 @@
       }
       # Rebuild model formula with modified terms
       lhs <- ifelse(length(form) == 2, "", all.vars(form)[1])
-      form <- as.formula(paste0(lhs, "~ ", paste0(ter, collapse = " + ")))
+      form <- stats::as.formula(paste0(lhs, "~ ", paste0(ter, collapse = " + ")))
     }
   }
   return(form)

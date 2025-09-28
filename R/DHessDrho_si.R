@@ -7,7 +7,7 @@
 #' @noRd
 #' @export 
 #'
-DHessDrho.si <- function(o, llk, DbDr){
+DHessDrho.si <- function(o, llk, DbDr, ...){
   
   d1H <- list()
 

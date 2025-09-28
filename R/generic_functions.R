@@ -4,8 +4,11 @@
 #' @param o object we want to get the derivatives of.
 #' @param ... arguments to be passed to methods.
 #' @rdname DllkDbeta
-#' @export DllkDbeta
-DllkDbeta <- function(o, ...) UseMethod("DllkDbeta")
+#' @noMd
+#' @noRd
+#' @export 
+DllkDbeta <- function(o, ...)
+    UseMethod("DllkDbeta")
 
 
 #'
@@ -14,5 +17,8 @@ DllkDbeta <- function(o, ...) UseMethod("DllkDbeta")
 #' @param o object we want to get the derivatives of.
 #' @param ... arguments to be passed to methods.
 #' @rdname DHessDrho
-#' @export DHessDrho
-DHessDrho <- function(o, ...) UseMethod("DHessDrho")
+#' @noMd
+#' @noRd
+#' @export 
+DHessDrho <- function(o, ...)
+    UseMethod("DHessDrho")

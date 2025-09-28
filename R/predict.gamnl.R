@@ -8,12 +8,12 @@
 #' @param type XXX
 #' @param se.fit XXX
 #' @param ... Can be ignored
-#' @importFrom mgcv Predict.matrix
+#' @importFrom mgcv Predict.matrix predict.gam
 #' @export
 #'
 predict.gamnl <- function(object, newdata, type="link", se.fit=FALSE, ...){
   
-  out <- predict.gam(object = object, newdata = newdata, type = type, block.size = Inf, ...)
+  out <- mgcv::predict.gam(object = object, newdata = newdata, type = type, block.size = Inf, ...)
   
   return(out)
   

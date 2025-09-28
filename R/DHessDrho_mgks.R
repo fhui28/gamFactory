@@ -7,7 +7,7 @@
 #' @noMd
 #' @export 
 #'
-DHessDrho.mgks <- function(o, llk, DbDr){
+DHessDrho.mgks <- function(o, llk, DbDr, ...){
   
   DHessDrho.nexpsm(o = o, llk = llk, DbDr = DbDr)
   

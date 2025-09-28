@@ -2,12 +2,11 @@
 #' Derivatives of log-lik w.r.t. coeffs of a standard effect
 #' 
 #' @rdname DllkDbeta.stand
-#' @export DllkDbeta.stand
 #' @noRd
 #' @noMd
 #' @export
 #'
-DllkDbeta.stand <- function(o, llk, deriv = 1, param = NULL){
+DllkDbeta.stand <- function(o, llk, deriv = 1, param = NULL, ...){
   
   if( deriv == 0 ){ return( list() ) }
   

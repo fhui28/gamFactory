@@ -1,13 +1,13 @@
 #'
 #' Derivatives of nested effect
 #' 
+#' @name DllkDbeta.nested
 #' @rdname DllkDbeta.nested
-#' @export DllkDbeta.nested
 #' @noRd
 #' @noMd
 #' @export
 #'
-DllkDbeta.nested <- function(o, llk, deriv = 1, param = NULL){
+DllkDbeta.nested <- function(o, llk, deriv = 1, param = NULL, ...){
   
   if( deriv == 0 ){ return( list() ) }
   

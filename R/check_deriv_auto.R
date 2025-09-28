@@ -11,9 +11,16 @@
 #' @param fun the name of the slot of \code{obj} containing the derivative function.
 #' @name check_deriv_auto
 #' @rdname check_deriv_auto
+#' @importFrom graphics abline
 #' @export check_deriv_auto
 #'
-check_deriv_auto <- function(np, simfun, obj, ord = 1, trans = identity, ..., fun = "derobj"){
+check_deriv_auto <- function(np, 
+                             simfun, 
+                             obj, 
+                             ord = 1, 
+                             trans = identity, 
+                             ..., 
+                             fun = "derobj"){
   
   pars <- simfun(np)
   
@@ -31,9 +38,12 @@ check_deriv_auto <- function(np, simfun, obj, ord = 1, trans = identity, ..., fu
   }
   
   for(kk in 1:length(out)){
-    plot(trans(out[[kk]][ , 1]), trans(out[[kk]][ , 2]), main = names(out)[[kk]], 
-         xlab = colnames(out[[1]])[1], ylab = colnames(out[[1]])[2])
-    abline(0, 1, col = 2)
+    plot(trans(out[[kk]][ , 1]), 
+         trans(out[[kk]][ , 2]), 
+         main = names(out)[[kk]], 
+         xlab = colnames(out[[1]])[1], 
+         ylab = colnames(out[[1]])[2])
+      graphics::abline(0, 1, col = 2)
   }
   
   out$param <- pars

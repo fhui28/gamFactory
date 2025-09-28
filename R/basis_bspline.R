@@ -13,7 +13,7 @@
 #' @name basis_bspline
 #' @rdname basis_bspline
 #' @importFrom splines spline.des
-#' @export basis_bspline
+#' @export 
 #' @examples
 #' library(gamFactory)
 #' 
@@ -47,7 +47,23 @@
 #' abline(0, 1, col = 2)
 #' 
 basis_bspline <- function(knots, m){
-  
+  # Internal to construct P-spline design
+  #
+  .basis_bspline <- function(x, knots, m, deriv = 0){
+
+    n <- length(x)
+    k <- length(knots)
+
+    out <- list()
+    for(ii in 1:(1+deriv)){
+      de <- ii-1
+      out[[paste0("X", de)]] <- splines::spline.des(knots, x = x, ord = m + 2,
+                                                    outer.ok = T, derivs = x*0 + de)$design
+    }
+
+    return( out )
+  }
+
   force(knots); force(m);
   
   # Numer of total, outer and inner knots
@@ -62,30 +78,11 @@ basis_bspline <- function(knots, m){
   krange <- range(knots[ko/2 + 1:ki])
 
   evalX <- function(x, deriv = 0){
-    gamFactory:::.basis_bspline(x = x, knots = knots, m = m, deriv = deriv)
+    .basis_bspline(x = x, knots = knots, m = m, deriv = deriv)
   }
   
   out <- structure(list("evalX" = evalX, "krange" = krange), 
                    class = c("B-spline", "basis"))
   
   return(out)
-}
-
-
-##########################
-# Internal to construct P-spline design
-# 
-.basis_bspline <- function(x, knots, m, deriv = 0){
-  
-  n <- length(x)
-  k <- length(knots)
-  
-  out <- list()
-  for(ii in 1:(1+deriv)){
-    de <- ii-1
-    out[[paste0("X", de)]] <- splines::spline.des(knots, x = x, ord = m + 2, 
-                                                  outer.ok = T, derivs = x*0 + de)$design
-  }
-  
-  return( out )
 }

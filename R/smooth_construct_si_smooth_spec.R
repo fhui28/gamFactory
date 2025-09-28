@@ -7,6 +7,7 @@
 #' @param knots XXX
 #' @rdname smooth.construct.si.smooth.spec
 #' @importFrom MASS Null
+#' @importFrom stats sd
 #' @export
 #'
 smooth.construct.si.smooth.spec <- function(object, data, knots){
@@ -40,7 +41,7 @@ smooth.construct.si.smooth.spec <- function(object, data, knots){
       rankSi <- rankMatrix(Si)
     }
     # Reparametrise Xi so that the penalty on the single index vector is diagonal
-    si <- append(si, gamFactory:::.diagPen(X = Xi, S = Si, r = rankSi))
+    si <- append(si, .diagPen(X = Xi, S = Si, r = rankSi))
   }
   
   # alpha is vector of inner coefficients, si$alpha is a vector of initial values for it.
@@ -62,7 +63,7 @@ smooth.construct.si.smooth.spec <- function(object, data, knots){
   # Reparametrise and then impose that variance should be 1
   si$alpha <- solve(si$B, si$alpha)
   si$a0 <- solve(si$B, si$a0)
-  tmp <- sd(si$X %*% (si$alpha + si$a0))
+  tmp <- stats::sd(si$X %*% (si$alpha + si$a0))
   si$alpha <- si$alpha / tmp
   si$a0 <- si$a0 / tmp
   

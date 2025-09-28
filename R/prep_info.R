@@ -4,7 +4,7 @@
 #' @rdname prep_info
 #' @noRd
 #' @noMd
-#' @export prep_info
+#' @export
 #' 
 prep_info <- function(o){
   
