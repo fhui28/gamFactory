@@ -6,6 +6,15 @@
 \usage{
 build_family_nl(bundle, info, lamVar = 1e+05, lamRidge = 1e-05)
 }
+\arguments{
+\item{bundle}{XXX}
+
+\item{info}{XXX}
+
+\item{lamVar}{XXX}
+
+\item{lamRidge}{XXX}
+}
 \description{
 Function for building GAM families containing non-standard effects
 }

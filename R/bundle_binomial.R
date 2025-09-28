@@ -2,6 +2,7 @@
 #' Bundle for Gaussian regression model
 #' 
 #' @name bundle_binomial
+#' @param n XXX
 #' @rdname bundle_binomial
 #' @export
 #'

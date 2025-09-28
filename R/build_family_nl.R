@@ -2,6 +2,10 @@
 #' Function for building GAM families containing non-standard effects
 #' 
 #' @name build_family_nl
+#' @param bundle XXX
+#' @param info XXX
+#' @param lamVar XXX
+#' @param lamRidge XXX
 #' @rdname build_family_nl
 #' @export build_family_nl
 #' 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/fam_ztpoisson.R
 \name{fam_ztpoisson}
 \alias{fam_ztpoisson}
-\title{: The zero-truncated Poisson family}
+\title{The zero-truncated Poisson family}
 \usage{
 fam_ztpoisson()
 }

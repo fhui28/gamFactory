@@ -6,6 +6,9 @@
 \usage{
 bundle_binomial(n)
 }
+\arguments{
+\item{n}{XXX}
+}
 \description{
 Bundle for Gaussian regression model
 }

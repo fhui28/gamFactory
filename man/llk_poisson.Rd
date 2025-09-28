@@ -7,12 +7,16 @@
 llk_poisson(y, param, deriv = 0, ...)
 }
 \arguments{
-\item{param}{XXX.}
+\item{y}{XXX}
 
-\item{deriv}{XXX.}
+\item{param}{XXX}
+
+\item{deriv}{XXX}
+
+\item{...}{Can be ignored.}
 }
 \description{
-XXX.
+XXX
 }
 \examples{
 library(gamFactory)

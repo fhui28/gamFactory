@@ -2,7 +2,7 @@
 #' Building new GAM families for mgcv::gam
 #' 
 #' @description XXX.
-#' @param np XXX.
+#' @param bundle XXX.
 #' @name build_family
 #' @rdname build_family
 #' @export build_family

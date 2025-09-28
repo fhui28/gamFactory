@@ -1,8 +1,10 @@
 #' Log-likelihood of a zero-truncated Poisson model
 #' 
-#' @description XXX.
-#' @param param XXX.
-#' @param deriv XXX.
+#' @description XXX
+#' @param y XXX
+#' @param param XXX
+#' @param deriv XXX
+#' @param ... Can be ignored.
 #' @rdname llk_ztpoisson
 #' @export llk_ztpoisson
 #' @examples 

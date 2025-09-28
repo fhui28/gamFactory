@@ -2,6 +2,7 @@
 #' The binomial family
 #' 
 #' @name fam_binomial
+#' @param n XXX
 #' @rdname fam_binomial
 #' @export fam_binomial
 #' @examples 

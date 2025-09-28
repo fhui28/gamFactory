@@ -7,7 +7,7 @@
 build_family(bundle)
 }
 \arguments{
-\item{np}{XXX.}
+\item{bundle}{XXX.}
 }
 \description{
 XXX.
