@@ -6,6 +6,22 @@
 \usage{
 fam_ztnbinom2()
 }
+\value{
+A family inheriting from glass \code{general.family}
+}
 \description{
-The zero-truncated negative binomial family
+The \code{fam_ztnbinom2} family implements a truncated negative binomial model in which the linear predictor controls the mean parameter of the negative binomial distribution, and \emph{not} the mean of the distribution itself.
+
+Requires positive integer count data.
+}
+\details{
+The zero-truncated negative binomial distribution is a two-parameter distribution for modeling count data that does not include zeros, whre the (non-truncated) negative binomial distribution is parametrized such that \eqn{Var(Y) = \mu + \mu^2 / \theta}, where \eqn{\mu} is the mean and \eqn{\theta} is the dispersion parameter.
+
+The fitted values for this family represent the negative binomial mean parameter, \eqn{\mu}, of the distribution, and \emph{not} the mean of the distribution itself, which is given by \eqn{E[Y] = \mu / (1 - P(y = 0))}, where \eqn{P(y = 0) = (\theta / (\mu + \theta))^\theta}.
+}
+\examples{
+\dontrun{
+# TBD
+}
+
 }
