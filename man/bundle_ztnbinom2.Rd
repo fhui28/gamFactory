@@ -4,10 +4,7 @@
 \alias{bundle_ztnbinom2}
 \title{Bundle for zero-truncated negative binomial model}
 \usage{
-bundle_ztnbinom2(theta = NULL)
-}
-\arguments{
-\item{theta}{A positive supplied \code{theta} is treated as a fixed known parameter, otherwise it is estimated.}
+bundle_ztnbinom2()
 }
 \description{
 Bundle for zero-truncated negative binomial model

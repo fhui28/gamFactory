@@ -9,7 +9,7 @@ bundle_ztnbinom2 <- function() {
     out <- list(np = 2,
                 available_deriv = 4,
                 llk = gamFactory::llk_ztnbinom2,
-                links = list(c("log"), c("identity")), 
+                links = list(c("log"), c("log")), 
                 nam = "ztnbinom2",
                 bundle_nam = as.character(match.call()[[1]]),
                 residuals = function(object, type = c("deviance", "pearson", "response")) {

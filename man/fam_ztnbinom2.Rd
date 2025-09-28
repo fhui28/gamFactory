@@ -21,7 +21,68 @@ The fitted values for this family represent the negative binomial mean parameter
 }
 \examples{
 \dontrun{
-# TBD
+library(gamFactory)
+library(sdmTMB)
+library(actuar)
+
+# Example 1: Generate data from and fitting a zero-truncated NB GLM
+dat <- gamSim(1, n = 2000, dist = "poisson", scale = .1)
+dat$eta = 0 + 0.5*dat$x0 + 0.5*dat$x1 - 0.5*dat$x2 + 0.5*dat$x3
+dat$mu <- exp(dat$eta)
+dat$y <- rztnbinom(n = 2000, size = 1/2, prob = 1/2/(dat$mu + 1/2))
+
+table(dat$y)
+
+
+## Fit misspecified NB model
+fit_wrong <- gam(y ~ x0 + x1 + x2 + x3,
+data = dat, 
+method = "REML",
+family = nb())
+
+## Reference fit using sdmTMB's truncated_nbinom family for fitting truncated NB models
+fit_gold <- sdmTMB(y ~ x0 + x1 + x2 + x3,
+data = dat,
+spatial = "off", 
+reml = TRUE,
+family = truncated_nbinom2())
+
+## Create specific zero-truncated NB family and fit it
+fit <- gam(list(y ~ x0 + x1 + x2 + x3, ~1), 
+data = dat, 
+method = "REML",
+family = fam_ztnbinom2())
+
+fit_wrong$coefficients # Estimated parameters should be off
+coef(fit_gold); exp(fit_gold$sd_report$par.fixed)
+fit$coefficients # Estimated parameters match those from sdmTMB and be close to true parameters
+
+
+# Example 2: Generate data from and fit a zero-truncated NB GAM
+dat <- gamSim(1, n = 2000, dist = "poisson", scale = .1)
+dat$eta = 0.5*(dat$f0 + dat$f1 + dat$f2 + dat$f3)
+dat$mu <- exp(dat$eta)
+dat$y <- rztnbinom(n = 2000, size = 1/2, prob = 1/2/(dat$mu + 1/2))
+
+
+## Reference fit using sdmTMB's truncated_nbinom family for fitting truncated NB models
+fit_gold <- sdmTMB(y ~ s(x0) + s(x1) + s(x2) + s(x3),
+data = dat,
+spatial = "off", 
+family = truncated_nbinom2())
+
+## Create specific zero-truncated NB family and fit it
+fit <- gam(list(y ~ s(x0) + s(x1) + s(x2) + s(x3), ~ 1), 
+data = dat,
+method = "REML",
+family = fam_ztnbinom2())
+
+
+err <- abs(fit$fitted.values[,1] - fitted(fit_gold))
+summary(err)
+# Error here should be relatively small, but tit may not be due to errors in sdmTMB?!
+
+plot(fit)
 }
 
 }
