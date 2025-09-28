@@ -18,7 +18,7 @@ bundle_ztpoisson <- function(){
                     return( r )
                 },
                 rd = function(mu, wt, scale) {
-                    return( actuar::rztpois(nrow(mu), mu) )
+                    return( actuar::rztpois(nrow(mu), lambda = mu) )
                 },
                 initialize = function(y, nobs, E, x, family, offset, jj, unscaled){
                     if(any(y <= 0)) {
@@ -74,6 +74,8 @@ bundle_ztpoisson <- function(){
 
 
 
+#' @noMd
+#' @noRd
 .resid_ztpoisson <- function(object, type) { 
     y <- drop(object$y)
     mu <- object$fitted.values

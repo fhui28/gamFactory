@@ -1,4 +1,4 @@
-#' @title: The zero-truncated Poisson family
+#' @title The zero-truncated Poisson family
 #' @description The `fam_ztpoisson` family implements a truncated Poisson model in which the linear predictor controls the rate (mean) parameter of the Poisson distribution, and *not* the mean of the distribution itself. 
 #' 
 #' Requires positive integer count data.
@@ -35,7 +35,7 @@
 #' 
 #' ## Reference fit using mgcv's ziplss family for fitting hurdle Poisson models
 #' fit_gold <- gam(list(y ~ x0 + x1 + x2 + x3, ~ 1),
-#' data = dat, 
+#' data = rbind(dat, 0), # Adding a zero as ziplss can sometimes hang in datas without zeros 
 #' method = "REML",
 #' family = ziplss())
 #' 
@@ -64,7 +64,8 @@
 #' 
 #' ## Create specific zero-truncated poisson family and fit it
 #' fit <- gam(list(y ~ s(x0) + s(x1) + s(x2) + s(x3)), 
-#' data = dat[dat$y>0,], 
+#' data = dat,
+#' method = "REML",
 #' family = fam_ztpoisson())
 #' 
 #' 
