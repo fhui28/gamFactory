@@ -1,8 +1,11 @@
 #'
 #' Preparing link function(s) of a response family
 #' 
-#' @description XXX.
-#' @param np XXX.
+#' @description XXX
+#' @param link XXX
+#' @param oklinks XXX
+#' @param np XXX
+#' @param nam XXX
 #' @name prepare_link
 #' @rdname prepare_link
 #' @export prepare_link
@@ -13,7 +16,7 @@
 #' 
 prepare_link <- function(link, oklinks, np, nam){
   
-  if (length(link) != np){ stop( paste0("family requires ", np, "links specified as character strings") ) }
+  if (length(link) != np){ stop( paste0("family requires ", np, " links specified as character strings") ) }
   
   stats <- list()
   for (ii in 1:np) {

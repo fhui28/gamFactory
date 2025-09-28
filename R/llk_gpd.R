@@ -1,8 +1,11 @@
 #'
 #' Log-likelihood of Generalized Pareto Distribution
 #' 
-#' @description XXX.
-#' @param np XXX.
+#' @description XXX
+#' @param y XXX
+#' @param param XXX
+#' @param deriv XXX
+#' @param ... Can be ignored.
 #' @name llk_gpd
 #' @rdname llk_gpd
 #' @export llk_gpd

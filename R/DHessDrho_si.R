@@ -3,6 +3,8 @@
 #' 
 #' @name DHessDrho.si
 #' @rdname DHessDrho.si
+#' @noMd
+#' @noRd
 #' @export 
 #'
 DHessDrho.si <- function(o, llk, DbDr){

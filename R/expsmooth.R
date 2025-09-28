@@ -2,6 +2,12 @@
 #' Exponential smooth and its derivatives
 #' 
 #' @name expsmooth
+#' @param y XXX
+#' @param Xi XXX
+#' @param beta XXX
+#' @param x0 Can be ignored.
+#' @param times Can be ignored.
+#' @param deriv Can be ignored.
 #' @rdname expsmooth
 #' @export expsmooth
 #' @importFrom Rcpp evalCpp

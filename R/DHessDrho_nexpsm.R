@@ -3,7 +3,9 @@
 #' 
 #' @name DHessDrho.nexpsm
 #' @rdname DHessDrho.nexpsm
-#' @export 
+#' @noRd
+#' @noMd
+#' @export
 #'
 DHessDrho.nexpsm <- function(o, llk, DbDr){
   

@@ -3,6 +3,9 @@
 #' 
 #' @name Predict.matrix.nested
 #' @rdname Predict.matrix.nested
+#' @param object XXX
+#' @param data XXX
+#' @param ... Can be ignored.
 #' @export
 #'
 Predict.matrix.nested <- function(object, data, ...){

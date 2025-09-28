@@ -2,6 +2,8 @@
 #' Get information to build family for GAM with non-standard effect 
 #' @name prep_info
 #' @rdname prep_info
+#' @noRd
+#' @noMd
 #' @export prep_info
 #' 
 prep_info <- function(o){

@@ -4,6 +4,7 @@
 #' @param Xi matrix to be projected via single index vector \code{alpha}.
 #' @param basis function which takes \code{si = Xi\%*\%alpha} as input and returns model
 #'                  matrix and its derivatives w.r.t. \code{si}.
+#' @param a0 Can be ignored.
 #' @name eff_si
 #' @rdname eff_si
 #' @export eff_si

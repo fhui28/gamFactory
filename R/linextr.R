@@ -13,6 +13,7 @@
 #'              \code{range(th)}. If set to \code{"smooth"} higher derivatives 
 #'              decay to zero exponentially at rate r, as we move away from 
 #'              (\code{th[1]},\code{th[2]}).
+#' @param r Can be ignored.              
 #'
 #' @return A list where \code{b[[1]]} contains the linearly extrapolated 
 #'         basis functions evaluated at \code{x}, \code{b[[2]]} the matrix of 

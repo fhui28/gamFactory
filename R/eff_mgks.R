@@ -2,6 +2,9 @@
 #' Build nested adaptive exponential smooth effect
 #' 
 #' @name eff_mgks
+#' @param y XXX
+#' @param dist XXX
+#' @param basis XXX
 #' @rdname eff_mgks
 #' @export eff_mgks
 #'

@@ -1,8 +1,10 @@
 #'
 #' Derivatives of log-likelihood w.r.t. coefs of multiple linear predictors
 #' 
+#' @name DllkDbeta.linpreds
 #' @rdname DllkDbeta.linpreds
-#' @export DllkDbeta.linpreds
+#' @noMd
+#' @noRd
 #' @export
 DllkDbeta.linpreds <- function(o, llk, deriv = 1, param = NULL){
   

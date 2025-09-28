@@ -3,6 +3,8 @@
 #' 
 #' @description Log-likelihood of the Sinh-Arsinh (shash) distribution 
 #' @param y a vector of observations.
+#' @param param XXX
+#' @param deriv XXX
 #' @param phiPen positive coefficient of ridge penalty on phi parameter.
 #' @examples 
 #' 

@@ -3,6 +3,8 @@
 #' 
 #' @rdname DllkDbeta.si
 #' @export DllkDbeta.si
+#' @noRd
+#' @noMd
 #' @export
 #'
 DllkDbeta.si <- function(o, llk, deriv = 1, param = NULL){

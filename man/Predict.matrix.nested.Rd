@@ -6,6 +6,13 @@
 \usage{
 \method{Predict.matrix}{nested}(object, data, ...)
 }
+\arguments{
+\item{object}{XXX}
+
+\item{data}{XXX}
+
+\item{...}{Can be ignored.}
+}
 \description{
 Predict using nested effects
 }

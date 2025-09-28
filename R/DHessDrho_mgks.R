@@ -3,6 +3,8 @@
 #' 
 #' @name DHessDrho.mgks
 #' @rdname DHessDrho.mgks
+#' @noRd
+#' @noMd
 #' @export 
 #'
 DHessDrho.mgks <- function(o, llk, DbDr){

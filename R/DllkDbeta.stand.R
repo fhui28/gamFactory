@@ -3,6 +3,8 @@
 #' 
 #' @rdname DllkDbeta.stand
 #' @export DllkDbeta.stand
+#' @noRd
+#' @noMd
 #' @export
 #'
 DllkDbeta.stand <- function(o, llk, deriv = 1, param = NULL){

@@ -2,6 +2,9 @@
 #' Nested adaptive exponential smoothing effects for mgcv
 #' 
 #' @name smooth.construct.nexpsm.smooth.spec
+#' @param object XXX
+#' @param data XXX
+#' @param knots XXX
 #' @rdname smooth.construct.nexpsm.smooth.spec
 #' @importFrom Matrix rankMatrix
 #' @export

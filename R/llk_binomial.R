@@ -3,9 +3,12 @@
 #'
 #' Log-likelhood of a Gaussian model
 #' 
-#' @description XXX.
-#' @param param XXX.
-#' @param deriv XXX.
+#' @description XXX
+#' @param y XXX
+#' @param param XXX
+#' @param n XXX
+#' @param deriv XXX
+#' @param ... Can be ignored.
 #' @rdname llk_binomial
 #' @export llk_binomial
 #' @examples 

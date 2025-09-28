@@ -3,8 +3,10 @@
 #' Log-likelhood of a Gaussian model
 #' 
 #' @description XXX.
+#' @param y XXX
 #' @param param XXX.
 #' @param deriv XXX.
+#' @param ... Can be ignored.
 #' @rdname llk_gaussian
 #' @examples 
 #' library(gamFactory)

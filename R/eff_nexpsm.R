@@ -2,6 +2,11 @@
 #' Build nested adaptive exponential smooth effect
 #' 
 #' @name eff_nexpsm
+#' @param y XXX
+#' @param Xi XXX
+#' @param basis XXX
+#' @param x0 Can be ignored.
+#' @param times Can be ignored.
 #' @rdname eff_nexpsm
 #' @export eff_nexpsm
 #'

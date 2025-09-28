@@ -60,7 +60,9 @@
 #' 
 #' @name DHessDrho.easy
 #' @rdname DHessDrho.easy
-#' @export 
+#' @noRd
+#' @noMd
+#' @export
 #'
 DHessDrho.easy <- function(o, llk, DbDr, index){
   

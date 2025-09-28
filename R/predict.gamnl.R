@@ -1,10 +1,13 @@
 #'
 #' Predictions from GAM models with non-linear effects
 #' 
-#' @param formula,family,data same arguments as in [mgcv::gam].
-#' @param ... further arguments to be passed to [mgcv::gam].
 #' @name predict.gamnl
 #' @rdname predict.gamnl
+#' @param object XXX
+#' @param newdata XXX
+#' @param type XXX
+#' @param se.fit XXX
+#' @param ... Can be ignored
 #' @importFrom mgcv Predict.matrix
 #' @export
 #'

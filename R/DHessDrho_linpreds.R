@@ -3,6 +3,8 @@
 #' 
 #' @name DHessDrho.linpreds
 #' @rdname DHessDrho.linpreds
+#' @noRd
+#' @noMd
 #' @export 
 #'
 DHessDrho.linpreds <- function(o, llk, DbDr){

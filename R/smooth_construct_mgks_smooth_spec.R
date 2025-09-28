@@ -24,6 +24,7 @@
 #' @return A \code{"mgks"} and \code{"nested"} object.
 #'
 #' @examples 
+#' \dontrun{
 #' n0 <- 50;n <- 1000
 #' X0 <- cbind(runif(n0, -1, 1), runif(n0, -4, 4))
 #' X <- cbind(runif(n, -1, 1), runif(n, -4, 4))
@@ -39,6 +40,7 @@
 #' dat$Xks <- cbind(temp,dist)
 #' colnames(dat$Xks) <- c(rep("y", nrow(X0)), rep("d1", nrow(X0)))
 #' aaa <- smoothCon(s_nest(Xks, trans=trans_mgks(), m = c(4, 2)),data = dat)
+#' }
 #'
 #' @seealso [mgks()], [trans_mgks()]
 #'

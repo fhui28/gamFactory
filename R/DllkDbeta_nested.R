@@ -3,6 +3,8 @@
 #' 
 #' @rdname DllkDbeta.nested
 #' @export DllkDbeta.nested
+#' @noRd
+#' @noMd
 #' @export
 #'
 DllkDbeta.nested <- function(o, llk, deriv = 1, param = NULL){

@@ -3,6 +3,8 @@
 #' 
 #' @name DHessDrho.stand
 #' @rdname DHessDrho.stand
+#' @noRd
+#' @noMd
 #' @export 
 #'
 DHessDrho.stand <- function(o, llk, DbDr){

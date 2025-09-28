@@ -2,6 +2,8 @@
 #' Post-process a GAM containing non-standard effects
 #' @name postproc_gam_nl
 #' @rdname postproc_gam_nl
+#' @noRd
+#' @noMd
 #' @export postproc_gam_nl
 #'
 postproc_gam_nl <- function(o, info){

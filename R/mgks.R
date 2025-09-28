@@ -2,6 +2,10 @@
 #' Multivariate Gaussian kernel smoother and its derivatives
 #' 
 #' @name mgks
+#' @param y XXX
+#' @param dist XXX
+#' @param beta XXX
+#' @param deriv XXX
 #' @rdname mgks
 #' @export mgks
 #' @examples

@@ -2,6 +2,9 @@
 #' Single index effects for mgcv
 #' 
 #' @name smooth.construct.si.smooth.spec
+#' @param object XXX
+#' @param data XXX
+#' @param knots XXX
 #' @rdname smooth.construct.si.smooth.spec
 #' @importFrom MASS Null
 #' @export
