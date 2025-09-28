@@ -1,8 +1,11 @@
 #' Log-likelihood of a zero-truncated negative binomial model
 #' 
-#' @description Many of the derivatives are constructed courtesy of the [Deriv()] package, with close to zero checks made on this after the second derivative!
-#' @param param XXX.
-#' @param deriv XXX.
+#' @description Many of the derivatives are constructed courtesy of the [Deriv::Deriv()] package, with close to zero checks made on this after the second derivative!
+#' 
+#' @param y XXX
+#' @param param XXX
+#' @param deriv XXX
+#' @param ... Can be ignored.
 #' @rdname llk_ztnbinom2
 #' @export llk_ztnbinom2
 #' @examples 
@@ -37,21 +40,21 @@ llk_ztnbinom2 <- function(y,
     out$d0 <- d0
     
     if( deriv > 0 ) {
-        d1 <- y / mu - y / (mu + theta) - (theta^(theta + 1) / (mu + theta)^(theta + 1)) / (1 - (theta / (mu + theta))^theta)
+        d1 <- y / mu - (y + theta) / (mu + theta) - (theta^(theta + 1) / (mu + theta)^(theta + 1)) / (1 - (theta / (mu + theta))^theta)
         d2 <- digamma(y + theta) - digamma(theta) + log(theta) + 1 - log(mu + theta) - theta / (mu + theta) - y / (mu + theta) 
         d2_part2 <- function(mu, theta) {
             .e1 <- mu + theta
             .e2 <- theta / .e1
             .e3 <- .e2^theta
             
-            ((log(theta) - log(.e1)) * .e3 + theta * (1 - .e2) * .e2^(therta - 1) / .e1) / (1 - .e3)
+            ((log(theta) - log(.e1)) * .e3 + theta * (1 - .e2) * .e2^(theta - 1) / .e1) / (1 - .e3)
             }
-        d2 <- d2 + d2_part2(mu, theta)
+        d2 <- d2 + d2_part2(mu = mu, theta = theta)
         rm(d2_part2)
         out[["d1"]] <- list(d1, d2)
         
         if( deriv > 1 ){ 
-            d11 <- -y / mu^2 + y / (mu + theta)^2
+            d11 <- -y / mu^2 + (y + theta) / (mu + theta)^2
             d11_part2 <- function(mu, theta) {
                 .e1 <- theta + mu
                 .e2 <- 1 + theta
@@ -61,10 +64,10 @@ llk_ztnbinom2 <- function(y,
                 
                 (theta^.e2 * .e2 * .e1^(theta - 2 * .e2) + theta^.e6 * .e3^(theta - 1)/(.e5 * .e1^.e6))/.e5           
                 }
-            d11 <- d11 + d11_part2(mu, theta)
+            d11 <- d11 + d11_part2(mu = mu, theta = theta)
             rm(d11_part2)
             
-            d12 <- y / (mu + theta)^2
+            d12 <- (y - mu) / (mu + theta)^2
             d12_part2 <- function(mu, theta) {
                 .e1 <- mu + theta
                 .e2 <- 1 + theta
@@ -77,7 +80,7 @@ llk_ztnbinom2 <- function(y,
                 
                 -(theta^.e2 * (((.e8 - .e7) * .e4 + theta * (1 - .e3) * .e3^(theta - 1)/.e1)/.e6 + .e2/theta + .e8 - (.e2 * .e1^theta + .e5 * .e7)/.e1^(2 * .e2 - .e2))/(.e6 * .e5))      
                 }
-            d12 <- d12 + d12_part2(mu, theta)
+            d12 <- d12 + d12_part2(mu = mu, theta = theta)
             rm(d12_part2)
             
             d22 <- trigamma(y + theta) - trigamma(theta) + 1/theta - 1/(mu + theta) - (theta * (y - mu)) / (mu + theta)^2
@@ -96,12 +99,12 @@ llk_ztnbinom2 <- function(y,
                 
                 ((.e10/.e11 + .e6 - .e5) * .e10 + (1 + theta * ((.e4 * .e7/theta + .e6 - (.e12 + .e5)) * .e4 - (2 - .e2)/.e1)) * .e8/.e1 + (1/theta - .e12) * .e3) / .e11
                 }
-            d22 <- d22 + d22_part2(mu, theta)
+            d22 <- d22 + d22_part2(mu = mu, theta = theta)
             rm(d22_part2)
             out[["d2"]] <- list(d11, d12, d22) 
             
             if( deriv > 2 ){
-                d111 <- 2 * y / mu^3 - 2 * y / (mu + theta)^3
+                d111 <- 2 * y / mu^3 - 2 * (y + theta) / (mu + theta)^3
                 d111_part2 <- function(mu, theta) {
                     .e1 <- theta + mu
                     .e2 <- theta/.e1
@@ -120,10 +123,10 @@ llk_ztnbinom2 <- function(y,
                                                                                      (.e5 * .e7 * .e1^.e11 + .e14 * .e1^.e3 * .e8)/.e10^2) * 
                                                                                     .e8 + theta^.e11 * .e6 * .e2^(theta - 2)/(.e5 * .e1^(5 + theta)))) / .e5
                     }
-                d111 <- d111 + d111_part2(mu, theta)
+                d111 <- d111 + d111_part2(mu = mu, theta = theta)
                 rm(d111_part2)
                 
-                d112 <- -2 * y / (mu + theta)^3
+                d112 <- (mu - 2 * y - theta) / (mu + theta)^3
                 d112_part2 <- function(mu, theta) {
                     .e1 <- mu + theta
                     .e2 <- theta/.e1
@@ -151,10 +154,10 @@ llk_ztnbinom2 <- function(y,
                             (.e3 * (.e14 * .e12 + theta^theta * .e3) + .e14) * .e16 + .e14 * (.e1^(theta - (1 + .e10)) * .e13 - .e11 * .e16) * .e3 - .e15 * 
                             ((.e4 * .e1^.e22 + .e11 * .e8) * .e9 - .e21 * .e8) * .e7/.e19^2) / .e9
                     }
-                d112 <- d112 + d112_part2(mu, theta)
+                d112 <- d112 + d112_part2(mu = mu, theta = theta)
                 rm(d112_part2)
                 
-                d122 <- -2 * y / (mu + theta)^3
+                d122 <- -2 * (y - mu) / (mu + theta)^3
                 d122_part2 <- function(mu, theta) {
                     .e1 <- mu + theta
                     .e2 <- theta/.e1
@@ -182,7 +185,7 @@ llk_ztnbinom2 <- function(y,
                                                                               (1/theta - 1/.e1) * .e5)/.e12 + .e15^2/.e1^(2 * .e3) + (2 - .e19)/theta - 
                                                                              (.e15 * .e4 + .e3 * (.e4 * .e10 + theta * .e1^.e8) + 2 * .e10)/.e6))/.e25 - .e20 * (.e15 * .e12 - .e17 * .e6) * .e24/.e25^2)
                 }
-                d122 <- d122 + d122_part2(mu, theta)
+                d122 <- d122 + d122_part2(mu = mu, theta = theta)
                 rm(d122_part2)
                 
                 d222 <- psigamma(y + theta, deriv = 2) - psigamma(theta, deriv = 2) - 1 / theta^2 + 1 / (mu + theta)^2 - (y * mu - mu^2 - theta * y + theta * mu) / (mu + theta)^3
@@ -214,12 +217,12 @@ llk_ztnbinom2 <- function(y,
                                                                                  .e3 + (3 - 2 * .e2)/.e27) - .e19) * .e8/.e1 + (.e14 * .e12 + .e25 + .e26) * .e23 + 
                             .e14 * (2 * ((.e23 * .e14 + .e25 + .e26)/.e17) + 2/theta - .e28) + (1/.e27 - 1/theta^2) * .e7)/.e17
                     }
-                d222 <- d222 + d222_part2(mu, theta)
+                d222 <- d222 + d222_part2(mu = mu, theta = theta)
                 rm(d222_part2)
                 out[["d3"]] <- list(d111, d112, d122, d222) 
                 
                 if( deriv > 3){
-                    d1111 <- -6 * y / mu^4 + 6 * y / (mu + theta)^4 
+                    d1111 <- -6 * y / mu^4 + 6 * (y + theta) / (mu + theta)^4 
                     d1111_part2 <- function(mu, theta) {
                         .e1 <- mu + theta
                         .e2 <- theta/.e1
@@ -259,10 +262,10 @@ llk_ztnbinom2 <- function(y,
                                          .e12 * ((.e5 * .e16 * .e15 + .e10 * .e35 * .e8) * .e7 + .e10 * (.e3 * .e35 * .e8 - theta * .e1^.e6 * .e6 * .e19) - 
                                                      2 * (.e22^2/.e13))/.e27 - (2 * .e5 + .e10 * .e8/.e1) * .e1 * .e33/.e23^2) * .e8) / .e5
                     }    
-                    d1111 <- d1111 + d1111_part2(mu, theta)
+                    d1111 <- d1111 + d1111_part2(mu = mu, theta = theta)
                     rm(d1111_part2)
                     
-                    d1112 <- 6 * y / (mu + theta)^4 
+                    d1112 <- (6 * y - 2 * mu + 4 * theta) / (mu + theta)^4 
                     d1112_part2 <- function(mu, theta) {
                         .e1 <- mu + theta
                         .e2 <- theta/.e1
@@ -318,10 +321,10 @@ llk_ztnbinom2 <- function(y,
                                                                                                                  .e30 * (.e14 * .e19 * .e2^(theta - 3)/.e1 + .e17 * .e24) * .e5)/.e39 + 
                                                        .e47 * .e49))) / .e6
                     }
-                    d1112 <- d1112 + d1112_part2(mu, theta)
+                    d1112 <- d1112 + d1112_part2(mu = mu, theta = theta)
                     rm(d1112_part2)
                     
-                    d1222 <- 6 * y / (mu + theta)^4
+                    d1222 <- 6 * (y - mu) / (mu + theta)^4
                     d1222_part2 <- function(mu, theta) {
                         .e1 <- mu + theta
                         .e2 <- theta/.e1
@@ -385,10 +388,10 @@ llk_ztnbinom2 <- function(y,
                                                  2 * .e28 + .e25)/.e11 + (3 - 2 * .e29)/.e71)) - ((.e56 * .e51 + .e31 * (.e57 * .e17 - (.e65 * .e11 + 2 * (.e14 * .e16)))) * .e46 + 
                                                                                                       (.e46 * .e51 + .e31 * (((.e54 - 2 * (.e56 * .e46/.e10))/.e1 + .e58 + .e59)/.e17 + .e61 + .e69)) * .e56) / .e66) / .e66)
                     }
-                    d1222 <- d1222 + d1222_part2(mu, theta)
+                    d1222 <- d1222 + d1222_part2(mu = mu, theta = theta)
                     rm(d1222_part2)
                     
-                    d1122 <- 6 * y / (mu + theta)^4
+                    d1122 <- (6 * y - 4 * mu + 2 * theta) / (mu + theta)^4
                     d1122_part2 <- function(mu, theta) {
                         .e1 <- mu + theta
                         .e2 <- theta/.e1
@@ -445,10 +448,9 @@ llk_ztnbinom2 <- function(y,
                                 (.e58 + 2 * .e17) * .e41 - .e18 * ((.e52 - (2 * .e49 + .e5)) * .e36 + 
                                                                        ((.e13 * .e1^.e3 + .e5 * .e21) * .e4 + .e26 * .e5 + 2 * .e21) * .e15 - (.e57 * .e10 + 2 * (.e26 * .e20))) * .e9/.e50)/.e15    
                     }
-                    d1122 <- d1122 + d1122_part2(mu, theta)
+                    d1122 <- d1122 + d1122_part2(mu = mu, theta = theta)
                     rm(d1122_part2)
                     
-                    d222 <- psigamma(y + theta, deriv = 2) - psigamma(theta, deriv = 2) - 1 / theta^2 + 1 / (mu + theta)^2 - (y * mu - mu^2 - theta * y + theta * mu) / (mu + theta)^3
                     d2222 <- psigamma(y + theta, deriv = 3) - psigamma(theta, deriv = 3) + 2 / theta^3 - 2 / (mu + theta)^3 - (2 * y * theta - 2 * mu * theta - 4 * y * mu + 4 * mu^2) / (mu + theta)^4
                     d2222_part2 <- function(mu, theta) {
                         .e1 <- mu + theta
@@ -505,7 +507,7 @@ llk_ztnbinom2 <- function(y,
                                                                                               (2 * .e3 + 2 * .e38)/.e55)) * .e10/.e1 + .e42 * (3 * .e46 + 3/theta - 3/.e1) + 
                                 (2/theta^3 - 2/.e55) * .e8) / .e18    
                     }
-                    d2222 <- d2222 + d2222_part2(mu, theta)
+                    d2222 <- d2222 + d2222_part2(mu = mu, theta = theta)
                     rm(d2222_part2)
                     out[["d4"]] <- list(d1111, d1112, d1122, d1222, d2222)
                     }
